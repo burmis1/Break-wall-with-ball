@@ -6,9 +6,12 @@ let spacing = 10;
 let colors = []; // 2D-array til at gemme farver for hvert rektangel
 let currentRow = numRows - 1; // Den aktuelle række
 let timeloop = 0; 
-
+let TimerP;
+let score = 0;
 function setup() {
-  createCanvas(400, 500);
+  createCanvas(600, 600);
+  // sætter timerP som er i kontrol over hvornår rect bevæger sige til siden. 
+  TimerP = 15
   // Beregn den samlede bredde af en række
   let totalWidth = (rectWidth * numRectsPerRow) + (spacing * (numRectsPerRow - 1));
   // Beregn det samlede højde af alle rækker
@@ -50,13 +53,14 @@ function keyPressed() {
   // Tjekker om spacebar er blevet trykket
   if (keyCode === 32) {
     // Tjekker farven på det rektangel i den øverste række, der ligger i midten
-    let midIndex = floor(numRectsPerRow / 2);
     if (colors[0][2] === 1) {
       // Hvis farven er grøn, gør det samme som moveRectangles()
       moveRectangles();
+      score += 1
     } else {
       // Hvis farven er sort, geninitialiser farverne ved at kalde setup()
       setup();
+      score = 0
     }
 
   }
@@ -81,13 +85,17 @@ function moveRectangles() {
   // Bland farverne i den øverste række
   shuffle(colors[numRows - 1], true);
 
+  
 
 }
 
 function draw() {
   background(255);
-  frameRate(30)
-  let startX = (width - ((rectWidth + spacing) * numRectsPerRow - spacing)) / 2;
+  frameRate(30);
+  textSize(30);
+  fill(0);
+  text("score "+ score, 450,50 );
+  let startX = (width - ((rectWidth + spacing) * numRectsPerRow - spacing))/4;
   let startY = height - ((rectHeight + spacing) * numRows - spacing);
   for (let i = 0; i < numRows; i++) {
     for (let j = 0; j < numRectsPerRow; j++) {
@@ -104,7 +112,7 @@ function draw() {
   }
   
 timeloop += 1
-if(timeloop > 30){
+if(timeloop > TimerP){
   moveRectanglesside();
   timeloop = 0
 }
