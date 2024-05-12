@@ -15,6 +15,8 @@ let btn2
 let btn3
 let btn4 
 let highscore
+let loser=0
+
 
 
 
@@ -57,7 +59,8 @@ function setup() {
     hastighed = hastighed/2;
   });
   btn3.mousePressed(function () {
-    if(hastighed > 0){hastighed=0} else if(hastighed == 0){hastighed = 1};
+    if(hastighed > 0){hastighed=0} else if(hastighed == 0){hastighed = 1;
+      loser=0};
   });
   
 
@@ -107,9 +110,11 @@ function keyPressed() {
       
       }
     } else {
+    
       // Hvis farven er sort, geninitialiser farverne ved at kalde setup()
       setup();
       score = 0
+      loser = 1
     }
 
   }
@@ -147,6 +152,14 @@ function draw() {
   fill(0);
   text("score "+ score, 450,50 );
   text("highscore "+ highscore, 400,150 );
+  if(loser==1){
+
+    hastighed=0
+    textSize(100);
+    fill('red')
+    text("you die", 100,150 )
+
+  }
   let startX = (width - ((rectWidth + spacing) * numRectsPerRow - spacing))/4;
   let startY = height - ((rectHeight + spacing) * numRows - spacing);
   for (let i = 0; i < numRows; i++) {
