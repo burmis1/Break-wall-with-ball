@@ -128,9 +128,8 @@ function moveRectangles() {
 // Function to draw the canvas.
 
 function draw() {
-  background(255);
-  frameRate(30);
   background(220);
+  frameRate(30);
 
   // Display score and highscore
   textSize(30);
