@@ -1,20 +1,19 @@
-
-let numRectsPerRow = 5;
-let numRows = 20;
-let rectWidth = 50;
-let rectHeight = 10;
-let spacing = 10;
+// Global variable 
+let numRectsPerRow = 5; // hvor man rects der er per rows
+let numRows = 20;  // hvor man rows der er 
+let rectWidth = 50;  // hvor bred rect er
+let rectHeight = 10; // hvor høj rect er
+let spacing = 10; // mellem rummet mellem rect
 let colors = []; // 2D-array til at gemme farver for hvert rektangel
-let currentRow = numRows - 1; // Den aktuelle række
-let timeloop = 0; 
-let TimerP;
-let score = 0;
-let hastighed = 0
+let timeloop = 0; // stemmer hvor hurtigt rect bevæger sig fra en side til en anden side. 
+let TimerP; 
+let score = 0; // vise ens score 
+let hastighed=0 // bestemmer hvad timeloop er 
 let btn1 
 let btn2 
 let btn3
 let btn4 
-let highscore
+let highscore=0
 let loser=0
 
 
