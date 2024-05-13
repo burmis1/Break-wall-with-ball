@@ -7,14 +7,14 @@ let spacing = 10; // mellem rummet mellem rect
 let colors = []; // 2D-array til at gemme farver for hvert rektangel
 let timeloop = 0; // stemmer hvor hurtigt rect bevæger sig fra en side til en anden side. 
 let TimerP; 
-let score = 0; // vise ens score 
 let hastighed=0 // bestemmer hvad timeloop er 
 let btn1 
 let btn2 
 let btn3
 let btn4 
-let highscore=0
-let loser=0
+let score = 0; // vise ens score 
+let highscore=0 // vise ens highscore 
+let loser=0 // har du tabt 
 
 
 
