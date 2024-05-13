@@ -11,7 +11,6 @@ let hastighed=0 // bestemmer hvad timeloop er
 let btn1 
 let btn2 
 let btn3
-let btn4 
 let score = 0; // vise ens score 
 let highscore=0 // vise ens highscore 
 let loser=0 // har du tabt 
