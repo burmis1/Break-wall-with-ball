@@ -78,19 +78,7 @@ function setup() {
     // Bland farverne i rækken
     shuffle(colors[i], true);
   };
-  // Tegn rektangler baseret på farverne i 'colors' arrayet
-  for (let i = 0; i < numRows; i++) {
-    for (let j = 0; j < numRectsPerRow; j++) {
-      let x = startX + (j * (rectWidth + spacing));
-      let y = startY + (i * (rectHeight + spacing));
-      if (colors[i][j] === 1) {
-        fill(0, 255, 0); // Grøn farve
-      } else {
-        fill(0); // Sort farve
-      }
-      rect(x, y, rectWidth, rectHeight);
-    }
-  }
+ 
 };
 // Tjekker om spacebar er blevet trykket
 function keyPressed() {
@@ -162,6 +150,7 @@ function draw() {
   }
   let startX = (width - ((rectWidth + spacing) * numRectsPerRow - spacing))/4;
   let startY = height - ((rectHeight + spacing) * numRows - spacing);
+  // Tegn rektangler baseret på farverne i 'colors' arrayet
   for (let i = 0; i < numRows; i++) {
     for (let j = 0; j < numRectsPerRow; j++) {
       let x = startX + (j * (rectWidth + spacing));
