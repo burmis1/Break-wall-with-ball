@@ -7,7 +7,7 @@ let spacing = 10; // Spacing between rectangles
 let colors = []; // 2D-array to store colors for each rectangle
 let timeloop = 0; // Counter for controlling the movement of rectangles from one side to another
 let TimerP; // Timer variable
-let hastighed = 0; // Controls the speed of timeloop
+let hastighed = 1; // Controls the speed of timeloop
 let btn1, btn2, btn3; // Buttons for controlling speed and start/stop
 let score = 0; // Display current score
 let highscore = 0; // Display highest score
@@ -175,8 +175,24 @@ function draw() {
 //Function to move rectangles sideways. 
 
 function moveRectanglesside() {
-  // Store the leftmost color in each row
+  
+  
+  // Gem den mest venstre farve i hver række
   let leftmostColors = [];
   for (let i = 0; i < numRows; i++) {
     leftmostColors[i] = colors[i][0];
+  }
 
+  // Flyt farverne i hver række én plads til venstre
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numRectsPerRow - 1; j++) {
+      colors[i][j] = colors[i][j + 1];
+    }
+  }
+
+  // Indsæt den gemte farve på den mest højre position i hver række
+  for (let i = 0; i < numRows; i++) {
+    colors[i][numRectsPerRow - 1] = leftmostColors[i];
+  }
+
+}
